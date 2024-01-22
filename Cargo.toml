@@ -1,0 +1,10 @@
+[package]
+name = "rust-hdl-bsp-step-mxo2-lpc"
+version = "0.1.0"
+edition = "2021"
+authors = ["y5c4l3 <y5c4l3@proton.me>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rust-hdl = { version = "0.46.0", features = ["fpga"] }
