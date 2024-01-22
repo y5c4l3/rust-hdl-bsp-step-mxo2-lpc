@@ -55,7 +55,7 @@ pub fn generate_bitstream<U: Block>(mut uut: U, prefix: &str) {
     let output = Command::new("ecppack")
         .current_dir(dir.clone())
         .args([
-            "-v",
+            "--compress",
             "--jed",
             "top.jed",
             "--jed-note",
