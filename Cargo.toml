@@ -3,6 +3,8 @@ name = "rust-hdl-bsp-step-mxo2-lpc"
 version = "0.1.0"
 edition = "2021"
 authors = ["y5c4l3 <y5c4l3@proton.me>"]
+description = "rust-hdl board support package for STEP-MXO2-LPC"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
