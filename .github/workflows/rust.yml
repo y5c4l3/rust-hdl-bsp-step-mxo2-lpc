@@ -11,16 +11,19 @@ env:
 
 jobs:
   build:
-    environment: deploy
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build
       run: cargo build --verbose
     - name: Run tests
       run: cargo test --verbose
-    - name: Publish
+  publish:
+    environment: publish
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.ref, 'refs/tags')
+    steps:
+    - name: Publish to creates.io
       uses: katyo/publish-crates@v2
       with:
         registry-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
