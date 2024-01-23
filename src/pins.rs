@@ -5,7 +5,7 @@ pub const CLOCK_SPEED_12MHZ: u64 = 12_000_000;
 #[derive(LogicInterface, Default)]
 pub struct SegmentDisplay {
     pub segments: Signal<Out, Bits<8>>,
-    pub enabled: Signal<Out, Bit>,
+    pub dimmed: Signal<Out, Bit>,
 }
 
 pub fn clock() -> Signal<In, Clock> {
@@ -60,7 +60,7 @@ pub fn rgb_leds() -> [Signal<Out, Bits<3>>; 2] {
 
 pub fn segment_displays() -> [SegmentDisplay; 2] {
     let mut displays = <[SegmentDisplay; 2]>::default();
-    displays[0].enabled.add_location(0, "C9");
+    displays[0].dimmed.add_location(0, "C9");
     let locs = ["A10", "C11", "F2", "E1", "E2", "A9", "B9", "F1"];
     for (i, loc) in locs.iter().enumerate() {
         displays[0].segments.add_location(i, loc);
@@ -68,7 +68,7 @@ pub fn segment_displays() -> [SegmentDisplay; 2] {
             .segments
             .add_signal_type(i, SignalType::LowVoltageCMOS_3v3);
     }
-    displays[1].enabled.add_location(0, "A12");
+    displays[1].dimmed.add_location(0, "A12");
     let locs = ["C12", "B14", "J1", "H1", "H2", "B12", "A11", "K1"];
     for (i, loc) in locs.iter().enumerate() {
         displays[1].segments.add_location(i, loc);

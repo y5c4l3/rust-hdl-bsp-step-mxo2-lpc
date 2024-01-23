@@ -1,6 +1,6 @@
 [package]
 name = "rust-hdl-bsp-step-mxo2-lpc"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["y5c4l3 <y5c4l3@proton.me>"]
 description = "rust-hdl board support package for STEP-MXO2-LPC"
